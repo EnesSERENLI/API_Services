@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebApi.Models;
 using WebApi.Models.DTO;
 
 namespace WebApi.Controllers
 {
     [Authorize] //Access is restricted for non-members. We will allow users to login with tokens.
+    [EnableCorsAttribute("*", "*", "*")] //We have allowed cors here instead of WebApiConfig. Because we were getting two conflicts and errors with the permission we gave in the midware layer.
     public class MoviesController : ApiController
     {
         ImdbDataEntities db = new ImdbDataEntities();

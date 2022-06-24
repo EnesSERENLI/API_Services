@@ -14,8 +14,8 @@ namespace WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            var cors = new EnableCorsAttribute("*","*","*"); //If you get an 'Access-Control-Allow-Origin' error when you request an external api project, you need to install the Microsoft.AspNet.Cors library from Nuget Package Manager to the location of the api project and give it permissions. Like here, we can open to all requests as well as limit them.
-            config.EnableCors(cors);
+            /*var cors = new EnableCorsAttribute("*","*","*");*/ //If you get an 'Access-Control-Allow-Origin' error when you request an external api project, you need to install the Microsoft.AspNet.Cors library from Nuget Package Manager to the location of the api project and give it permissions. Like here, we can open to all requests as well as limit them.
+            //config.EnableCors(cors);
 
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
