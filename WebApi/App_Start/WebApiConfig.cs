@@ -24,6 +24,12 @@ namespace WebApi
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            //Custom Route
+            config.Routes.MapHttpRoute(
+                name: "searhMovie",
+                routeTemplate: "api/movie/{param}", new { controller = "movies", action = "GetSearchMovie" } //I added a custom route for the search process.
+                );
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}", //We added the action to the Default Route. Requests come with the action name.

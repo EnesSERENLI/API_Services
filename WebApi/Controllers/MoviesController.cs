@@ -76,5 +76,19 @@ namespace WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        //Search Movie
+        public IHttpActionResult GetSearchMovie(string param)
+        {
+            var result = db.Movies.Where(x => x.Title.Contains(param)).Select(x => new MovieDTO
+            {
+                Id = x.Id,
+                Title = x.Title,
+                Year = x.Year,
+                Description = x.Description,
+                Rate = x.Rating
+            }).ToList();
+            return Json(result);
+        }
     }
 }
