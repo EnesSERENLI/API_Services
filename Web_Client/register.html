@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Register</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <section class="container mt-3">
+        <div class="col-md-6 mx-auto">
+            <div class="">
+                <div class="alert alert-success" id="alert-success">
+                    <span id="info"></span>
+                </div>
+                <div class="alert alert-danger" id="alert-danger">
+                    <span id="infoerror"></span>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>User Registration</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="mt-2">
+                            <label>Email</label>
+                            <input type="email" class="form-control" id="email" />
+                        </div>
+                        <div class="mt-2">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="password" />
+                        </div>
+                        <div class="mt-2">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmpassword" />
+                        </div>
+                        <button class="btn btn-primary mt-2" id="btnRegister">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/register.js"></script>
+</body>
+</html>
