@@ -12,7 +12,7 @@
             success: function (result) {
                 console.log(result.access_token); //Let's see it in the console when the token is created.
                 sessionStorage.setItem("access_token", result.access_token) //we just got the token part. No need to get other information.
-                window.location.href = 'https://localhost:44399/api/movies' //After the login process, the user can open the page with the token received.
+                window.location.href = "/movie.html" //After the login process, the user can open the page with the token received.
             }
         })
     }

@@ -84,8 +84,10 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="js\login.js" />
+    <Content Include="js\movie.js" />
     <Content Include="js\register.js" />
     <Content Include="login.html" />
+    <Content Include="movie.html" />
     <Content Include="register.html" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
