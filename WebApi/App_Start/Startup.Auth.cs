@@ -22,6 +22,10 @@ namespace WebApi
         // For more information on configuring authentication, please visit https://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            //Cors required to open requests to midware.When buying tokens, we request midware directly, not any API. 
+            IAppBuilder appBuilder = app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll); //****IMPORTANT*****
+
+
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
