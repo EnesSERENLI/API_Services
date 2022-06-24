@@ -4,7 +4,7 @@
     function getProducts() {
         $.ajax({
             method: 'get',
-            url: 'https://localhost:44399/api/products',
+            url: 'https://localhost:44399/api/movies',
             headers: {
                 "Authorization": "Bearer " + sessionStorage.getItem("access_token") //When a request is made to the page, an object will appear in the headers. This object will be Authorization and its type will be Bearer. Then we give the token in the sessionStorege that we created while buying the token.
             },
@@ -13,7 +13,7 @@
             }
         }).done(function (data) {
             data.forEach(function (val, index) { //We created a table to list the movies.
-                $("#movie-table").append(` 
+                $("#movieTable").append(` 
                     <tr>
                         <td>${val.Id}</td>
                         <td>${val.Title}</td>

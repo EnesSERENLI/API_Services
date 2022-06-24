@@ -8,19 +8,36 @@
 </head>
 <body>
     <section class="container">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Rate</th>
-                    <th>Year</th>
-                </tr>
-            </thead>
-            <tbody id="movie-table">
-            </tbody>
-        </table>
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2>Movies</h2>
+                    </div>
+                    <div class="col-md-9 d-inline-flex">
+                        <input type="text" id="txtAra" style="margin-left:130px;" placeholder="Search" class="form-control me-2" />
+                        <button class="btn btn-primary me-2" id="btnRandom">Random Movie</button>
+                        <button class="btn btn-primary me-2" id="btnRatingMovie">Random High Rating Movie</button>
+                        <button class="btn btn-success me-2" style="float:left" id="btnCreate">Create Movie</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" id="card_body">
+                <table class="table table-hover" id="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Rating</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody id="movieTable">
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </section>
     <script src="js/movie.js"></script>
 </body>
