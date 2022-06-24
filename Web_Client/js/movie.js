@@ -4,7 +4,7 @@
     function getProducts() {
         $.ajax({
             method: 'get',
-            url: 'https://localhost:44399/api/movies',
+            url: 'https://localhost:44399/api/movies/GetMovies',
             headers: {
                 "Authorization": "Bearer " + sessionStorage.getItem("access_token") //When a request is made to the page, an object will appear in the headers. This object will be Authorization and its type will be Bearer. Then we give the token in the sessionStorege that we created while buying the token.
             },
