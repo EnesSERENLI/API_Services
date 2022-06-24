@@ -32,8 +32,8 @@
     else {
         window.location.href = "/login.html" //If the token is not received, go to the login page.
     }
-    //tabloyu temizleme
-    function clearTable() { //Cleaning the table
+    //Cleaning the table
+    function clearTable() { 
         $(".trMovie").remove();
     }
 
@@ -61,4 +61,27 @@
         getRandomMovie();
     })
 
+    //GetRandomHighRatingMovie
+    function GetRandomHighRatingMovie() {
+        $.ajax({
+            method: 'Get',
+            url: 'https://localhost:44399/api/movies/GetRandomHighRatingMovie'
+        }).done(function (movie) {
+            clearTable()
+            var tr = `
+<tr class="trMovie">
+<td>${movie.Id}</td>
+<td>${movie.Title}</td>
+<td>${movie.Description}</td>
+<td>${movie.Rate}</td>
+<td>${movie.Year}</td>
+</tr>
+`
+            $("#movieTable").append(tr);
+        })
+    }
+    //RandomHighRatinMovie
+    $("#btnRatingMovie").click(function () {
+        GetRandomHighRatingMovie()
+    })
 })
