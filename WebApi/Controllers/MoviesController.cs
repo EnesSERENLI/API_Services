@@ -9,6 +9,7 @@ using WebApi.Models.DTO;
 
 namespace WebApi.Controllers
 {
+    [Authorize] //Access is restricted for non-members. We will allow users to login with tokens.
     public class MoviesController : ApiController
     {
         ImdbDataEntities db = new ImdbDataEntities();
