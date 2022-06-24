@@ -14,7 +14,7 @@
         }).done(function (data) {
             data.forEach(function (val, index) { //We created a table to list the movies.
                 $("#movieTable").append(` 
-                    <tr>
+                    <tr class="trMovie">
                         <td>${val.Id}</td>
                         <td>${val.Title}</td>
                         <td>${val.Description}</td>
@@ -32,5 +32,33 @@
     else {
         window.location.href = "/login.html" //If the token is not received, go to the login page.
     }
+    //tabloyu temizleme
+    function clearTable() { //Cleaning the table
+        $(".trMovie").remove();
+    }
+
+    //GetRandomMovie
+    function getRandomMovie() {
+        $.ajax({
+            method: 'Get',
+            url: 'https://localhost:44399/api/movies/GetRandomMovies'
+        }).done(function (response) {
+            clearTable() //Let the table be cleared first, then a random movie come..
+            var tr = `
+<tr class="trMovie">
+                    <td>${response.Id}</td>
+                    <td>${response.Title}</td>
+                    <td>${response.Description}</td>
+                    <td>${response.Rate}</td>
+                    <td>${response.Year}</td>
+</tr>
+                    `
+            $("#movieTable").append(tr);
+        })
+    }
+
+    $("#btnRandom").click(function () { //Function that will be activated when btnRandom is clicked
+        getRandomMovie();
+    })
 
 })
