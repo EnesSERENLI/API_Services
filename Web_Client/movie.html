@@ -19,24 +19,47 @@
                         <button class="btn btn-primary me-2" id="btnMovie">All Movies</button>
                         <button class="btn btn-primary me-2" id="btnRandom">Random Movie</button>
                         <button class="btn btn-primary me-2" id="btnRatingMovie">Random High Rating Movie</button>
-                        <button class="btn btn-success me-2" style="float:left" id="btnCreate">Create Movie</button>
                     </div>
                 </div>
             </div>
             <div class="card-body" id="card_body">
-                <table class="table table-hover" id="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Rating</th>
-                            <th>Year</th>
-                        </tr>
-                    </thead>
-                    <tbody id="movieTable">
-                    </tbody>
-                </table>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div>
+                            <label>Title</label>
+                            <input type="text" class="form-control" id="movieTitle" />
+                        </div>
+                        <div>
+                            <label>Description</label>
+                            <input type="text" class="form-control" id="movieDescription" />
+                        </div>
+                        <div>
+                            <label>Rating</label>
+                            <input type="text" class="form-control" id="movieRating" />
+                        </div>
+                        <div>
+                            <label>Year</label>
+                            <input type="text" class="form-control" id="movieYear" />
+                        </div>
+                        <button class="btn btn-success mt-2" id="btnAddMovie">Add Movie</button>
+                    </div>
+                    <div class="col-md-9">
+                        <table class="table table-hover" id="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Rating</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody id="movieTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>

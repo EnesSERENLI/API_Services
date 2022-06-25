@@ -16,8 +16,7 @@ namespace WebApi.Controllers
     {
         ImdbDataEntities db = new ImdbDataEntities();
 
-        // Get: api/movies
-        public IHttpActionResult GetMovies()
+        public List<MovieDTO> GetMovieList()
         {
             var movies = db.Movies.Select(x => new MovieDTO
             {
@@ -26,8 +25,14 @@ namespace WebApi.Controllers
                 Description = x.Description,
                 Year = x.Year,
                 Rate = x.Rating
-            });
-            return Json(movies);
+            }).ToList();
+            return movies;
+        }
+        // Get: api/movies
+        public IHttpActionResult GetMovies()
+        {
+            
+            return Json(GetMovieList());
         }
 
         //Random Movie
@@ -89,6 +94,25 @@ namespace WebApi.Controllers
                 Rate = x.Rating
             }).ToList();
             return Json(result);
+        }
+
+        //Add Movie
+        public IHttpActionResult PostAddMovie(Movy movie)
+        {
+            try
+            {
+                if (movie != null)
+                {
+                    db.Movies.Add(movie);
+                    db.SaveChanges();
+                    return Json(GetMovieList());
+                }
+                return BadRequest("Data not found!");
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
         }
     }
 }
