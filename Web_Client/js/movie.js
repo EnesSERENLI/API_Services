@@ -160,9 +160,59 @@
         })
     })
 
+    $("#movieTable").on('click', 'button', function () { // on => id'si => 'employeeTable' içerisinden demek.click => event , button => element / button click olduğunda func devreye girecek.
+        var currentValue = $(this).attr('value'); //this represents the clicked button.attr => means attributes // Buttons are given value and id.
+        var currentId = $(this).attr('id'); //here also throw the id in currentId.
+        var message = confirm('Are you sure you want to trade?') // comfirm => Confirmation question pops up.
+        //Movie delete
+        if (currentValue == 'Delete') {
+            if (message) { //The decision structure is yes if the message is true.
+                $.ajax({
+                    method: 'Delete',
+                    url: 'https://localhost:44399/api/movies/DeleteMovie/' + currentId,
+                    headers: {
+                        "Authorization": "Bearer " + sessionStorage.getItem("access_token")
+                    },
+                    success: function (data) {
+                        getMovies(data)
+                    }
+                })
+            }
+            else {
+                alert("It is cancelled.")
+            }
+        }
+        else if (currentValue == 'Update') {
+            //Movie Update
+            if (message) {
+                var title = document.getElementById('movieTitle').value;
+                var description = document.getElementById('movieDescription').value;
+                var rating = document.getElementById('movieRating').value;
+                var year = parseInt($("#movieYear").val());
+
+                var movie = new Movie(title, description, rating, year);
+                movie.Id = currentId;
+                console.log(movie);
+                $.ajax({
+                    method: 'Put',
+                    url: 'https://localhost:44399/api/movies/PutMovie',
+                    data: movie,
+                    headers: {
+                        "Authorization": "Bearer " + sessionStorage.getItem("access_token")
+                    },
+                    success: function (data) {
+                        getMovies(data)
+                    }
+                })
+            }
+            else {
+                alert("It is cancelled.")
+            }
+        }
+    })
 
     class Movie {
-        MovieId;
+        Id;
         Title;
         Description;
         Rating;

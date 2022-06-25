@@ -114,5 +114,49 @@ namespace WebApi.Controllers
                 return Json(ex.Message);
             }
         }
+        //Delete Movie
+        public IHttpActionResult DeleteMovie(int id)
+        {
+            Movy deleted = db.Movies.FirstOrDefault(x => x.Id == id);
+            try
+            {
+                if (deleted != null)
+                {
+                    db.Movies.Remove(deleted);
+                    db.SaveChanges();
+                    return Json(GetMovieList());
+                }
+                else
+                {
+                    return BadRequest("Data not found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(ex.Message);
+            }
+        }
+
+        //Update Movie
+        public IHttpActionResult PutMovie(Movy movie)
+        {
+            try
+            {
+                if (movie != null)
+                {
+                    db.Entry(movie).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return Json(GetMovieList());
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
